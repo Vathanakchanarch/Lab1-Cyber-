@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise3</title>
+    <link rel="stylesheet" href="./src/output.css">
+</head>
+<body>
+    <div>
+        <h1 class="text-2xl font-bold text-center mb-4">Caesar Cipher</h1>
+        <textarea name="input" id="input" class="textarea textarea-bordered w-full mb-4" placeholder="Enter your text here ..." ></textarea>
+        <input type="number" id="shiftValue" class="input input-borderd w-full mb-4" placeholder="Enter shift value">
+        <div class="flex justify-between mb-4">
+            <button class="btn btn-primary w-1/2 mr-2" onclick="encrypt()">encrypt</button>
+            <button class="btn btn-secondary w-1/2 mr-2"onclick="decryptText()">Decrypt</button>
+        </div>
+        <div>
+            <label class="font-bold mb-2 block">Output:</label>
+            <p id="output" class="p-4 border rounded bg-gray-50 "></p>
+        </div>
+    </div>
+    <script>
+        function encrypt(){
+            let text = document.getElementById("input").value;
+            let shift= parseInt(document.getElementById("shiftValue").value) || 0;
+            let result="";
+            for (let i=0;i<text.length;i++){
+                let char = text[i]
+                if (char.match(/[A-Z]/)){
+                    result += String.fromCharCode((char.charCodeAt(0) - 65 + shift) % 26 + 65);
+                }
+                else if (char.match(/[a-z]/)){
+                    result += String.fromCharCode((char.charCodeAt(0)-97 + shift) %26 +97);
+                }else{
+                    result+= char;
+                }
+            }
+            document.getElementById("output").textContent=result;
+        }
+        function decryptText(){
+            let text = document.getElementById("input").value;
+            let shift = parseInt(document.getElementById("shiftValue").value) || 0;
+            let result = "";
+
+            for (let i = 0; i < text.length; i++) {
+                let char = text[i];
+                if (char.match(/[A-Z]/)) {
+                    // Uppercase letters
+                    result += String.fromCharCode((char.charCodeAt(0) - 65 - shift + 26) % 26 + 65);
+                } else if (char.match(/[a-z]/)) {
+                    // Lowercase letters
+                    result += String.fromCharCode((char.charCodeAt(0) - 97 - shift + 26) % 26 + 97);
+                } else {
+                    result += char;
+                }
+            }
+
+            document.getElementById("output").textContent = result;
+        }
+    </script>
+</body>
+</html>

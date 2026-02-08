@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise3</title>
+</head>
+<body>
+    <p id="time"></p>
+
+    <script>
+        function updateGreeting() {
+            const d = new Date();
+            const hours = d.getHours();
+            let text;
+            if (hours < 12) {
+                text = "Good morning";
+            } else if (hours < 18) {
+                text = "Good afternoon";
+            } else {
+                text = "Good evening";
+            }
+            document.getElementById("time").innerHTML = text;
+        }
+        updateGreeting();
+        setInterval(updateGreeting, 1);
+    </script>
+</body>
+</html>

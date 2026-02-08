@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise2</title>
+</head>
+<body>
+    <p id="arr"></p>
+    <script>
+        function array(a=[]){
+            let l=a.length;
+            let result="";
+            for (let i= 0 ; i < l ; i++ ){
+                result += a[i];
+                if (i < l-1){
+                    result+=",";
+                }
+          
+            }
+            return result;
+        }
+        myColor = ["Red", "Green", "White", "Black"];
+        document.getElementById("arr").innerHTML = array(myColor);
+    </script>
+</body>
+</html>

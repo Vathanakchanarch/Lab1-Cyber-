@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise1</title>
+</head>
+<body>
+    <p id="year"></p>
+    <button onclick="Findleapyear()">Click here</button>
+    <script> 
+        function Findleapyear(){
+            let Year= Number(prompt("Enter your Year:"));
+            let result;
+            if (Year % 4 === 0){
+                if (Year % 100 === 0){
+                    if (Year % 400 === 0){
+                        result = "Leap Year";
+                    }
+                    else{
+                        result = "Common Year";
+                    }
+                }
+                else {
+                    result = "Leap Year";
+                }
+                
+
+            }
+            else{
+                result =  "Common year";
+            }
+            document.getElementById("year").innerHTML=result;
+        }
+    </script>
+    
+</body>
+</html>
